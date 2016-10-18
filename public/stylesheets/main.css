@@ -1,0 +1,54 @@
+#container{
+	max-width: 1200px;
+	margin: auto; 	
+}
+
+h1{
+	color: red;
+}
+
+h3{
+	text-decoration: underline;
+}
+
+label{
+	display: inline-table;
+	width: 90px; 
+}
+
+.gauche{
+	float: left;
+}
+
+.droite{
+	float: right;
+}
+
+.clearer{
+	clear: both;
+}
+
+.ligne{
+	margin: 0 0 10px 0;
+	padding: 3px;
+	text-align: left;	
+}
+
+.input-text{
+	width: 226px;
+}
+.troisCentTrentePx{
+	width: 330px;
+}
+
+.center{
+	margin: auto;
+}
+
+#checkin{
+	text-align: right;
+	border: 5px solid grey;
+    background: antiquewhite;
+    padding: 10px;
+}
+
