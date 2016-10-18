@@ -1,0 +1,7 @@
+secure.title=
+secure.email=Email:
+secure.motDePasse=Password:
+secure.remember=Remember me
+secure.signin=Sign in
+secure.error=Oops, unknown email or password.
+secure.logout=You have been logged out.

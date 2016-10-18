@@ -1,0 +1,24 @@
+#{extends 'main.html' /}
+#{set title:'tp_jeux | Accueil' /}
+
+<h1>&{'title.site'}</h1>
+
+<h3>Ajouter un checkin</h3>
+<form action ="@{Application.checkin}" method="POST">
+	<span ><label>Latitude :</label><input type="text" name="topLatitude" /></span>
+	<span><label style="margin: 10px;">Longitude :</label><input type="text" name="topLongitude" /> </span>
+	<span></span>
+	<input type="submit" name="go" />
+</form>
+
+#{if checkins}
+<table>
+	<tbody>
+		#{list items : checkins, as : 'checkin' }
+			<tr>
+				<td>${checkin.date}</td>
+			</tr>
+		#{/list}
+	</tbody>
+</table>
+#{/if}
