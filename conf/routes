@@ -6,6 +6,10 @@
 GET     /                                       Application.index
 POST	/checkin								Application.index
 
+# Checkin
+GET		/ajout									Checkins.ajout
+GET		/creer									Checkins.create
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

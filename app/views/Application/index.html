@@ -1,6 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'tp_jeux | Accueil' /}
 
+<a href="@{Checkins.ajout}">Ajouter un checkin</a>
 
 <h3>Ajouter un checkin</h3>
 
@@ -9,11 +10,11 @@
 		<div>
 			<div class="ligne">
 				<label>Latitude :</label>
-				<input class="input-text" type="text" name="topLatitude" />
+				<input class="input-text" type="text" name="coordonneeLatitude" />
 			</div>
 			<div class="ligne">
 				<label>Longitude :</label>
-				<input class="input-text" type="text" name="topLongitude" /> 
+				<input class="input-text" type="text" name="coordonneeLongitude" /> 
 			</div>
 		</div>	
 		<div class="droite troisCentTrentePx">
@@ -24,14 +25,27 @@
 </div>
 
 #{if checkins}
-<table id="checkins">
-	<tbody>
-		#{list items : checkins, as : 'checkin' }
+	<h3>Liste des checkins</h3>
+	<table id="checkins">
+		<thead>
 			<tr>
-				<td>${checkin.date}</td>
+				<th>Zone</th>
+				<th>Ressource</th>
+				<th>Date</th>
 			</tr>
-		#{/list}
-	</tbody>
-</table>
+		</thead>
+		<tbody>
+			#{list items : checkins, as : 'checkin' }
+				<tr>
+					<td>
+						<span>X : (${checkin.zone.minX} ${checkin.zone.maxX})</span>
+						<span>Y : (${checkin.zone.minY} ${checkin.zone.maxY})</span>
+					</td>
+					<td>${checkin.zone.ressource}</td>
+					<td>${checkin.date}</td>
+				</tr>
+			#{/list}
+		</tbody>
+	</table>
 #{/if}
 

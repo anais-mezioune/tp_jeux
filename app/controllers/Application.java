@@ -12,11 +12,11 @@ public class Application extends Controller {
 
     public static void index() {
     	// 
-    	List<Checkin> checkins = Checkin.findAll();
+    	List<Checkin> checkins = Checkin.find("player.id = 1 order by date desc").fetch(10);
     	render(checkins);
     }
     
-    public static void checkin(Float topLatitude, Float topLongitude) {
+    public static void checkin(Float coordonneeLatitude, Float coordonneeLongitude) {
         Player player = Player.findById(1L);
         
         if(player == null){
@@ -29,14 +29,15 @@ public class Application extends Controller {
         	player.save();
     	}
     	
-        Zone zone = new Zone(topLatitude, topLongitude);
+        Zone zone = new Zone(coordonneeLatitude, coordonneeLongitude);
     	Checkin checkin = new Checkin();
         
     	checkin.date = new Date();
         checkin.player = player;
+        checkin.zone = zone;
     	zone.save();
         checkin.save();
-    	index();
+    	index(); 
     }
     
 

@@ -10,7 +10,7 @@ public class Zones extends Controller {
         render();
     }
 
-    public static void save(@Required Float topLatitude, Float bottomLatitude, @Required Float topLongitude, Float bottomLongitude) {
+    public static void save(@Required Float coordonneeLatitude, @Required Float coordonneeLongitude) {
 
         if (validation.hasErrors()) {
             params.flash();
@@ -18,11 +18,7 @@ public class Zones extends Controller {
             create();
         }
 
-        Zone zone = new Zone(topLatitude, topLongitude);
-        zone.topLatitude = topLatitude;
-        zone.bottomLatitude = bottomLatitude;
-        zone.topLongitude = topLongitude;
-        zone.bottomLongitude = bottomLongitude;
+        Zone zone = new Zone(coordonneeLatitude, coordonneeLongitude);
         zone.save();
         render(zone);
     }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 import models.Checkin;
+import models.Zone;
 import play.data.validation.*;
 import play.mvc.Controller;
 
@@ -13,7 +14,7 @@ public class Checkins extends Controller {
         render();
     }
 
-    public static void save(@Required Float topLatitude, @Required Float topLongitude) {
+    public static void save(@Required Float coordonneeLatitude, @Required Float coordonneeLongitude) {
 
         if (validation.hasErrors()) {
             params.flash();
@@ -22,8 +23,13 @@ public class Checkins extends Controller {
         }
 
         Checkin checkin = new Checkin();
+        Zone zone = new Zone(coordonneeLatitude, coordonneeLongitude);
         checkin.date = new Date();
         checkin.save();
         render(checkin);
+    }
+    
+    public static void ajout(){
+    	create();
     }
 }
